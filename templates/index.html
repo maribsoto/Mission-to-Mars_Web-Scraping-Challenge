@@ -1,0 +1,62 @@
+<!-- HTML Doc for Mars Dictionary and display of all data as HTML elements -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<!-- Header and Style of our HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Body of our HTML and Jumbotron -->
+<div class="jumbotron text-center">
+    <h1>Mission to Mars</h1>
+    <p1><a class="btn btn-primary btn-lg" href="http://127.0.0.1:5000/scrape" role="button">Scraping Mars!</a></p1>
+</div>
+<div>
+    <h5 style='text-indent: 12px';>Latest Mars News: {{mars.news_title}}</h5>
+    <p style='text-indent: 12px';>{{mars.news_paragraph}}</p>
+    
+    <br>
+    <!-- Mars Featured Image, Facts Table and Weather Twit -->
+    <div class="container-fluid">
+        <div class="row">    
+            <div class="col-md-7">
+                <h5>Mars Featured Image</h5>
+                <img src={{mars.featured_image}} alt="mars" width='100%' height='90%'>
+            </div>
+            <div class="col-md-5">
+                <h5>Mars Facts Table</h5>
+                {{mars.facts | safe}}
+                <br>
+                <h5>Mars Current Weather</h5>
+                <p>{{mars.weather}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Mars Hemispheres -->
+    <h3 style="text-align: left; text-indent: 12px">Mars Hemispheres</h3>
+    <div class="row row-cols-1 row-cols-md-2">
+      {% for item in mars.hem %}
+      <div class="col mb-4">
+        <div class="card text-white bg-dark" style="margin: 15px;">
+          <img src="{{item.img_url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-title">{{item.title}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>  
+    <p1 style='text-indent: 15px';>Last updated: {{mars.last_modified}}</p1>
+</div>
+    
+
+</body>
+
+</html>
