@@ -2,7 +2,7 @@
 
 ![mission_to_mars.png](Images/mission_to_mars.png)
 
-In this project we built a web application that scraped several websites for data related to the Mission to Mars and displayed the information into a HTML page
+In this project I built a web application that scraped several websites for data related to the Mission to Mars and displayed the information into a HTML page
 
 ### Data sources
 * NASA Mars News (https://mars.nasa.gov/news/)
